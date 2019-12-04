@@ -1,7 +1,13 @@
 import React from 'react';
 
-// import { Container } from './styles';
+import { Container, List } from './styles';
 
 export default function Students() {
-  return <h1>Gerenciando alunos</h1>;
+  return (
+    <Container>
+      <h1>Gerenciando alunos</h1>
+
+      <List />
+    </Container>
+  );
 }
