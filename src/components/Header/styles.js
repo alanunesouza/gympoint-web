@@ -17,11 +17,12 @@ export const Content = styled.div`
   nav {
     display: flex;
     flex: 1;
+    justify-content: flex-end;
+    align-items: center;
 
     img {
       margin-right: 20px;
       padding-right: 20px;
-      border-right: 1px solid #eee;
     }
   }
   aside {
