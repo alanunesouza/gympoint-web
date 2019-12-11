@@ -11,7 +11,7 @@ import Profile from '../pages/Profile';
 export default function Routes() {
   return (
     <Switch>
-      <Route path="/" exact component={SignIn} />
+      <Route path="/" component={SignIn} />
       <Route path="/register" component={SignUp} />
 
       <Route path="/students" component={Students} isPrivate />

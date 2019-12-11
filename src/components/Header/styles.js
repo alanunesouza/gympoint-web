@@ -7,27 +7,23 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   height: 64px;
-  width: 100%;
+  max-width: 900px;
   margin: 0 auto;
   display: flex;
-  flex: 1;
   justify-content: space-between;
   align-items: center;
 
   nav {
     display: flex;
-    flex: 1;
-    justify-content: flex-end;
     align-items: center;
 
     img {
       margin-right: 20px;
-      padding-right: 20px;
     }
   }
   aside {
     display: flex;
-    flex: 1;
+    align-items: center;
   }
 `;
 
@@ -36,7 +32,6 @@ export const Options = styled.div`
   flex: 5;
   align-items: center;
   justify-content: flex-start;
-  margin-left: 20px;
   padding-left: 20px;
   border-left: 1px solid #eee;
 
@@ -51,9 +46,13 @@ export const Options = styled.div`
 
 export const Profile = styled.div`
   display: flex;
-  margin-left: 20px;
   padding-left: 20px;
   border-left: 1px solid #eee;
+
+  @media (max-width: 767px) {
+    padding-left: 5px;
+  }
+
   div {
     text-align: right;
     margin-right: 10px;
