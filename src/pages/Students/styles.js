@@ -25,8 +25,6 @@ export const ListContainer = styled.div`
   padding: 20px;
   background-color: #fff;
   border-radius: 6px;
-  margin: 10px 0;
-  padding: 0 10%;
 `;
 
 export const Table = styled.table`
@@ -38,6 +36,9 @@ export const Table = styled.table`
   thead {
     tr {
       border: 0;
+    }
+    th {
+      text-transform: uppercase;
     }
   }
 
@@ -61,11 +62,20 @@ export const Button = styled.a`
 `;
 
 export const ButtonAdd = styled.a`
+  background-color: #ed4c64;
+
   display: flex;
   align-items: center;
-  cursor: pointer;
   border-radius: 6px;
-  padding: 8px;
-  background-color: #ed4c64;
+  padding: 10px 25px;
   color: #fff;
+  font-weight: 500;
+  margin: 0 10px;
+  cursor: pointer;
+  height: 40px;
+  justify-content: space-between;
+  text-transform: uppercase;
+  svg {
+    margin-right: 5px;
+  }
 `;

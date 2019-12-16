@@ -21,6 +21,9 @@ export default function student(state = INITIAL_STATE, action) {
         draft.loading = false;
         break;
       }
+      case '@student/CREATE_STUDENT': {
+        break;
+      }
       case '@student/DELETE_STUDENT': {
         break;
       }

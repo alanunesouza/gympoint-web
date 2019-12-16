@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { FiPlus } from 'react-icons/fi';
 
 import { Container, ListContainer, Table, Button, ButtonAdd } from './styles';
 import api from '~/services/api';
@@ -8,7 +10,6 @@ import { getStudents, deleteStudent } from '~/store/modules/student/actions';
 export default function Students() {
   const { students } = useSelector(state => state.student);
   const dispatch = useDispatch();
-  const { token } = useSelector(state => state.auth);
 
   useEffect(() => {
     async function loadStudents() {
@@ -21,23 +22,28 @@ export default function Students() {
   }, []);
 
   function handleDeleteStudent({ id }) {
-    dispatch(deleteStudent(token, id));
+    dispatch(deleteStudent(id));
   }
 
   return (
     <Container>
       <div>
         <h1>Gerenciando alunos</h1>
-        <ButtonAdd>+ CADASTRAR</ButtonAdd>
+        <Link to="/students/create">
+          <ButtonAdd>
+            <FiPlus />
+            cadastrar
+          </ButtonAdd>
+        </Link>
       </div>
 
       <ListContainer>
         <Table>
           <thead>
             <tr>
-              <th>NOME</th>
-              <th>E-MAIL</th>
-              <th>IDADE</th>
+              <th>nome</th>
+              <th>e-mail</th>
+              <th>idade</th>
               <th> </th>
             </tr>
           </thead>
