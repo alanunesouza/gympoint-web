@@ -26,7 +26,7 @@ export const Content = styled.div`
       }
     }
     span {
-      color: #fb6f91;
+      color: #ed4c64;
       align-self: flex-start;
       margin: 0 0 10px;
       font-weight: bold;

@@ -1,24 +1,35 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { Container, ListContainer, Table, Button } from './styles';
+import { Container, ListContainer, Table, Button, ButtonAdd } from './styles';
 import api from '~/services/api';
+import { getStudents, deleteStudent } from '~/store/modules/student/actions';
 
 export default function Students() {
-  const [students, setStudents] = useState([]);
+  const { students } = useSelector(state => state.student);
+  const dispatch = useDispatch();
+  const { token } = useSelector(state => state.auth);
 
   useEffect(() => {
     async function loadStudents() {
       const response = await api.get('/students');
 
-      setStudents(response.data);
+      dispatch(getStudents(response.data));
     }
 
     loadStudents();
   }, []);
 
+  function handleDeleteStudent({ id }) {
+    dispatch(deleteStudent(token, id));
+  }
+
   return (
     <Container>
-      <h1>Gerenciando alunos</h1>
+      <div>
+        <h1>Gerenciando alunos</h1>
+        <ButtonAdd>+ CADASTRAR</ButtonAdd>
+      </div>
 
       <ListContainer>
         <Table>
@@ -32,13 +43,18 @@ export default function Students() {
           </thead>
           <tbody>
             {students.map(student => (
-              <tr>
+              <tr key={student.email}>
                 <td>{student.name}</td>
                 <td>{student.email}</td>
                 <td>{student.age}</td>
                 <td>
                   <Button color="#2054C3">editar</Button>
-                  <Button color="#F44646">apagar</Button>
+                  <Button
+                    onClick={() => handleDeleteStudent(student)}
+                    color="#F44646"
+                  >
+                    apagar
+                  </Button>
                 </td>
               </tr>
             ))}

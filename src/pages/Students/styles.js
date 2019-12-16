@@ -1,13 +1,21 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  /* max-width: 900px; */
-  margin: 50px;
+  max-width: 900px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
+  /* justify-content: center;
+  align-items: center; */
+
+  div:first-child {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: 30px 0;
+  }
 
   h1 {
-    margin: 0 0 40px 40px;
     font-size: 24px;
     font-weight: 500;
   }
@@ -16,7 +24,7 @@ export const Container = styled.div`
 export const ListContainer = styled.div`
   padding: 20px;
   background-color: #fff;
-  border-radius: 8px;
+  border-radius: 6px;
   margin: 10px 0;
   padding: 0 10%;
 `;
@@ -42,6 +50,7 @@ export const Table = styled.table`
   th {
     width: 30%;
     text-align: left;
+    padding: 10px;
   }
 `;
 
@@ -49,4 +58,14 @@ export const Button = styled.a`
   color: ${props => props.color};
   margin: 10px;
   cursor: pointer;
+`;
+
+export const ButtonAdd = styled.a`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 8px;
+  background-color: #ed4c64;
+  color: #fff;
 `;

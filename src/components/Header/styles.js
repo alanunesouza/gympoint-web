@@ -54,7 +54,6 @@ export const Profile = styled.div`
   }
 
   div {
-    text-align: right;
     margin-right: 10px;
     strong {
       display: block;
@@ -65,6 +64,11 @@ export const Profile = styled.div`
       margin-top: 2px;
       font-size: 12px;
       color: #999;
+    }
+    button {
+      cursor: pointer;
+      color: #ed4c64;
+      border: none;
     }
   }
   img {
