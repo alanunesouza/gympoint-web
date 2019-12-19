@@ -61,9 +61,8 @@ export const Button = styled.a`
   cursor: pointer;
 `;
 
-export const ButtonAdd = styled.a`
+export const ButtonAdd = styled.button`
   background-color: #ed4c64;
-
   display: flex;
   align-items: center;
   border-radius: 6px;
@@ -77,5 +76,11 @@ export const ButtonAdd = styled.a`
   text-transform: uppercase;
   svg {
     margin-right: 5px;
+  }
+  :hover {
+    opacity: 0.7;
+  }
+  :active {
+    border-style: none;
   }
 `;

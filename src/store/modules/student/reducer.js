@@ -22,6 +22,11 @@ export default function student(state = INITIAL_STATE, action) {
         break;
       }
       case '@student/CREATE_STUDENT': {
+        draft.student = action.payload;
+        break;
+      }
+      case '@student/UPDATE_STUDENT': {
+        draft.student = action.payload;
         break;
       }
       case '@student/DELETE_STUDENT': {

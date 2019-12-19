@@ -113,4 +113,10 @@ export const Button = styled.button`
   svg {
     margin-right: 5px;
   }
+  :hover {
+    opacity: 0.7;
+  }
+  :active {
+    border-style: none;
+  }
 `;

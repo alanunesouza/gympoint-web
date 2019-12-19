@@ -29,7 +29,7 @@ export default function Students() {
     <Container>
       <div>
         <h1>Gerenciando alunos</h1>
-        <Link to="/students/create">
+        <Link to="/student">
           <ButtonAdd>
             <FiPlus />
             cadastrar
@@ -54,7 +54,9 @@ export default function Students() {
                 <td>{student.email}</td>
                 <td>{student.age}</td>
                 <td>
-                  <Button color="#2054C3">editar</Button>
+                  <Link to={`/student/${student.id}`}>
+                    <Button color="#2054C3">editar</Button>
+                  </Link>
                   <Button
                     onClick={() => handleDeleteStudent(student)}
                     color="#F44646"
