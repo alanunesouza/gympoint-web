@@ -5,9 +5,11 @@ import { Wrapper, Content } from './styles';
 import Header from '~/components/Header';
 
 export default function DefaultLayout({ children }) {
+  const page = children.props.match.path;
+
   return (
     <Wrapper>
-      <Header />
+      <Header page={page} />
       <Content>{children}</Content>
     </Wrapper>
   );

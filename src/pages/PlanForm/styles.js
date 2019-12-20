@@ -82,9 +82,9 @@ export const InputSmall = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-
   input {
     width: 90%;
+    background-color: ${props => (props.disabled ? '#eee !important' : '#fff')};
   }
 `;
 

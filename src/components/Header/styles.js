@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
   background: #fff;
@@ -7,8 +8,7 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   height: 64px;
-  max-width: 900px;
-  margin: 0 auto;
+  margin: 0 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,6 +19,7 @@ export const Content = styled.div`
 
     img {
       margin-right: 20px;
+      height: 25px;
     }
   }
   aside {
@@ -27,7 +28,7 @@ export const Content = styled.div`
   }
 `;
 
-export const Options = styled.div`
+export const Pages = styled.div`
   display: flex;
   flex: 5;
   align-items: center;
@@ -42,6 +43,16 @@ export const Options = styled.div`
     font-size: 15px;
     color: #444;
   }
+`;
+
+export const PageItem = styled(Link)`
+  display: block;
+  margin-top: 2px;
+  margin: 10px;
+  font-size: 15px;
+  color: #444;
+  text-transform: uppercase;
+  font-weight: ${props => (props.selected ? 'bold' : 'normal')};
 `;
 
 export const Profile = styled.div`
