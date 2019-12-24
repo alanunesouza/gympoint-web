@@ -13,9 +13,7 @@ export default function Students() {
 
   useEffect(() => {
     async function loadStudents() {
-      const response = await api.get('/students');
-
-      dispatch(getStudents(response.data));
+      await dispatch(getStudents());
     }
 
     loadStudents();

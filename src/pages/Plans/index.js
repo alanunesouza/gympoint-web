@@ -13,9 +13,7 @@ export default function Plans() {
 
   useEffect(() => {
     async function loadPlans() {
-      const response = await api.get('/plans');
-
-      dispatch(getPlans(response.data));
+      await dispatch(getPlans());
     }
 
     loadPlans();

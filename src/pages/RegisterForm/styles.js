@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import AsyncSelect from 'react-select/async';
+import DatePicker from 'react-datepicker';
 
 export const Container = styled.div`
   max-width: 900px;
@@ -28,13 +30,20 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
 
-    div {
-      display: flex;
-      flex: 1;
-      justify-content: space-between;
-      height: 100%;
-    }
     input {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 4px;
+      height: 44px;
+      padding: 0 15px;
+      color: #666;
+      margin: 0 0 10px;
+      &::placeholder {
+        color: #ddd;
+      }
+    }
+
+    select {
       background: #fff;
       border: 1px solid #eee;
       border-radius: 4px;
@@ -110,4 +119,55 @@ export const Button = styled.button`
   :active {
     border-style: none;
   }
+`;
+
+export const CustomAsyncSelect = styled(AsyncSelect)`
+  width: 100%;
+  max-width: 840px;
+  #react-select-2-input {
+    margin: 0;
+  }
+  div {
+    align-items: center;
+    div {
+      margin-left: 3px;
+      div {
+        margin: 0;
+      }
+    }
+    span {
+      margin-bottom: 10px;
+    }
+  }
+`;
+
+export const CustomSelect = styled(AsyncSelect)`
+  padding-top: 2.4px;
+  width: 198px;
+  height: 45px;
+  border-radius: 4px;
+  #react-select-2-input {
+    margin: 0;
+  }
+  div {
+    align-items: center;
+    height: auto;
+    div {
+      margin-left: 3px;
+      div {
+        margin: 0;
+      }
+    }
+    span {
+      margin-bottom: 10px;
+    }
+  }
+`;
+
+export const CustomDatePicker = styled(DatePicker)`
+  width: 100%;
+  min-height: 45px;
+  padding: 10px;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
 `;
