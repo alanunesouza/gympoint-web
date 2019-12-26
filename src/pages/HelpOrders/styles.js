@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  margin: 0 40px;
+  max-width: 900px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   /* justify-content: center;
@@ -51,11 +52,6 @@ export const Table = styled.table`
     width: 30%;
     text-align: left;
     padding: 10px;
-
-    img {
-      width: 20px;
-      height: 20px;
-    }
   }
 `;
 

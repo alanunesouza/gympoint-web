@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FiPlus } from 'react-icons/fi';
 
+import check from '~/assets/check.png';
+import unchecked from '~/assets/unchecked.png';
 import { Container, ListContainer, Table, Button, ButtonAdd } from './styles';
 import { getRegisters, deleteRegister } from '~/store/modules/register/actions';
 
@@ -53,7 +55,13 @@ export default function Registers() {
                 <td>{register.plan.title}</td>
                 <td>{register.start_date_formatted}</td>
                 <td>{register.end_date_formatted}</td>
-                <td>{register.active}</td>
+                <td>
+                  {register.active ? (
+                    <img src={check} alt="Check" />
+                  ) : (
+                    <img src={unchecked} alt="Unchecked" />
+                  )}
+                </td>
                 <td>
                   <Link to={`/registration/${register.id}`}>
                     <Button color="#2054C3">editar</Button>

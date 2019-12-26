@@ -32,7 +32,7 @@ export function* get() {
 
     yield put(getRegistersSuccess(data));
   } catch (err) {
-    toast.error('Falha ao buscar planos');
+    toast.error('Falha ao buscar matrículas');
     yield put(getRegistersError());
   }
 }
@@ -59,14 +59,14 @@ export function* create({ payload }) {
 
     history.push('/registrations');
   } catch (err) {
-    toast.error('Falha ao salvar plano, tente novamente');
+    toast.error('Falha ao salvar matrícula, tente novamente');
   }
 }
 
 export function* update({ payload }) {
   try {
-    const { plan_id } = payload;
-    yield call(api.put, `/registrations/${plan_id}`, {
+    const { id: register_id } = payload;
+    yield call(api.put, `/registrations/${register_id}`, {
       ...payload,
     });
 
@@ -74,7 +74,7 @@ export function* update({ payload }) {
 
     toast.success('Cadastro atualizado com sucesso');
   } catch (err) {
-    toast.error('Falha ao atualizar dados do plano, tente novamente');
+    toast.error('Falha ao atualizar matrícula, tente novamente');
   }
 }
 

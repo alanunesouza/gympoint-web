@@ -17,17 +17,17 @@ export function getRegistersError() {
   };
 }
 
-export function createRegister(title, duration, price) {
+export function createRegister(student_id, plan_id, start_date) {
   return {
     type: '@register/CREATE_REGISTER',
-    payload: { title, duration, price },
+    payload: { student_id, plan_id, start_date },
   };
 }
 
-export function updateRegister(plan_id, title, duration, price) {
+export function updateRegister(id, student_id, plan_id, start_date) {
   return {
     type: '@register/UPDATE_REGISTER',
-    payload: { plan_id, title, duration, price },
+    payload: { id, student_id, plan_id, start_date },
   };
 }
 

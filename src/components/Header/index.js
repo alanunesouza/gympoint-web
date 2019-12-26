@@ -15,7 +15,7 @@ export default function Header({ page }) {
     { route: '/students', label: 'alunos' },
     { route: '/plans', label: 'planos' },
     { route: '/registrations', label: 'matrículas' },
-    { route: '/questions', label: 'pedidos de auxílio' },
+    { route: '/helpOrders', label: 'pedidos de auxílio' },
   ];
 
   function handleSignOut() {
