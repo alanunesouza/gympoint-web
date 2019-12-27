@@ -6,9 +6,15 @@ import api from '~/services/api';
 import { getStudents, getStudentsSuccess, getStudentsError } from './actions';
 import history from '~/services/history';
 
-export function* get() {
+export function* get({ payload }) {
   try {
-    const response = yield call(api.get, '/students');
+    const { page, name } = payload;
+    const response = yield call(api.get, '/students', {
+      params: {
+        page,
+        name,
+      },
+    });
 
     yield put(getStudentsSuccess(response.data));
   } catch (err) {

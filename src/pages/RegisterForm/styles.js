@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-import AsyncSelect from 'react-select/async';
-import DatePicker from 'react-datepicker';
 
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -39,6 +37,7 @@ export const Container = styled.div`
       height: 44px;
       padding: 0 15px;
       color: #666;
+      float: left;
 
       &::placeholder {
         color: #ddd;
@@ -92,6 +91,7 @@ export const Row = styled.div`
   display: flex;
   align-items: baseline;
   flex-direction: row;
+  justify-content: space-between;
   margin: 30px 0;
 `;
 

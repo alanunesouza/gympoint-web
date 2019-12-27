@@ -11,6 +11,7 @@ import { Container, ListContainer, InputSmall, Button } from './styles';
 import api from '~/services/api';
 import { createStudent, updateStudent } from '~/store/modules/student/actions';
 import history from '~/services/history';
+import InputPrefix from '~/components/InputPrefix';
 
 const schema = Yup.object().shape({
   name: Yup.string().required('O nome é obrigatório'),
@@ -23,8 +24,9 @@ const schema = Yup.object().shape({
 });
 
 export default function StudentForm() {
-  // const { student } = useSelector(state => state.student);
   const [student, setStudent] = useState({});
+  const [weight, setWeight] = useState({});
+  const [height, setHeight] = useState({});
   const { id } = useParams();
   const isNewStudent = !id;
 
@@ -46,11 +48,9 @@ export default function StudentForm() {
     }
   }, []);
 
-  function handleCreateStudent({ name, email, age, weight, height }) {
+  function handleCreateStudent({ name, email, age }) {
     const student_id = Number(id);
     age = Number(age);
-    weight = Number(weight);
-    height = Number(height);
 
     if (isNewStudent) {
       dispatch(createStudent(name, email, age, weight, height));
@@ -100,12 +100,24 @@ export default function StudentForm() {
 
             <InputSmall>
               <span style={{ color: '#666' }}>PESO (em kg)</span>
-              <Input name="weight" />
+              <InputPrefix
+                name="weight"
+                suffix="kg"
+                maxLength={7}
+                thousandSeparator={false}
+                onChange={value => setWeight(value)}
+              />
             </InputSmall>
 
             <InputSmall>
               <span style={{ color: '#666' }}>ALTURA</span>
-              <Input name="height" />
+              <InputPrefix
+                name="height"
+                suffix="m"
+                maxLength={7}
+                thousandSeparator={false}
+                onChange={value => setHeight(value)}
+              />
             </InputSmall>
           </div>
         </Form>

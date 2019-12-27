@@ -1,13 +1,14 @@
-export function getStudents() {
+export function getStudents(page, studentName) {
   return {
     type: '@student/GET_STUDENTS',
+    payload: { page, name: studentName },
   };
 }
 
-export function getStudentsSuccess(students) {
+export function getStudentsSuccess(data) {
   return {
     type: '@student/GET_STUDENTS_SUCCESS',
-    payload: { students },
+    payload: { hasMoreItems: data.hasMoreItems, students: data.content },
   };
 }
 

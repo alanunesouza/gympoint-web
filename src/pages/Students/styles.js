@@ -21,6 +21,28 @@ export const Container = styled.div`
   }
 `;
 
+export const ActionsContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+
+  span {
+    display: flex;
+    align-items: center;
+    position: relative;
+    svg {
+      position: absolute;
+      left: 10px;
+    }
+    input {
+      width: 237px;
+      height: 40px;
+      border: 1px solid #dddddd;
+      border-radius: 6px;
+      padding-left: 35px;
+    }
+  }
+`;
+
 export const ListContainer = styled.div`
   padding: 20px;
   background-color: #fff;
@@ -55,7 +77,7 @@ export const Table = styled.table`
   }
 `;
 
-export const Button = styled.a`
+export const Button = styled.span`
   color: ${props => props.color};
   margin: 10px;
   cursor: pointer;

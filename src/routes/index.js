@@ -11,7 +11,6 @@ import Plans from '~/pages/Plans';
 import PlanForm from '~/pages/PlanForm';
 import Registers from '~/pages/Registers';
 import RegisterForm from '~/pages/RegisterForm';
-import Profile from '~/pages/Profile';
 import helpOrders from '~/pages/HelpOrders';
 
 export default function Routes() {
@@ -35,7 +34,6 @@ export default function Routes() {
         component={RegisterForm}
         isPrivate
       />
-      <Route path="/profile" component={Profile} isPrivate />
     </Switch>
   );
 }

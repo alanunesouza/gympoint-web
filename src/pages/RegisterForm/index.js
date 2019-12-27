@@ -6,7 +6,6 @@ import { useParams } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
 import { FiCheck, FiChevronLeft } from 'react-icons/fi';
 import { format, addMonths } from 'date-fns';
-// import { format, addMonths } from 'date-fns-tz';
 
 import { Container, ListContainer, Button, InputSmall, Row } from './styles';
 import { formatMoney } from '~/util/formats';

@@ -39,14 +39,16 @@ export default function Registers() {
       <ListContainer>
         <Table>
           <thead>
-            <tr>
-              <th>aluno</th>
-              <th>plano</th>
-              <th>início</th>
-              <th>término</th>
-              <th>ativa</th>
-              <th> </th>
-            </tr>
+            {registers && registers.length > 0 && (
+              <tr>
+                <th>aluno</th>
+                <th>plano</th>
+                <th>início</th>
+                <th>término</th>
+                <th>ativa</th>
+                <th> </th>
+              </tr>
+            )}
           </thead>
           <tbody>
             {registers.map(register => (
@@ -77,6 +79,10 @@ export default function Registers() {
             ))}
           </tbody>
         </Table>
+
+        {registers && registers.length === 0 && (
+          <span>Você não tem matrículas cadastradas no momento.</span>
+        )}
       </ListContainer>
     </Container>
   );

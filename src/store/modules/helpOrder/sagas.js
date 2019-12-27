@@ -18,7 +18,7 @@ export function* get() {
 
     yield put(getHelpOrdersSuccess(data));
   } catch (err) {
-    toast.error('Falha ao buscar alunos');
+    toast.error('Falha ao buscar perguntas');
     yield put(getHelpOrdersError());
   }
 }
@@ -33,11 +33,26 @@ export function* create({ payload }) {
 
     history.push('/helpOrders');
   } catch (err) {
-    toast.error('Falha ao salvar aluno, tente novamente');
+    toast.error('Falha a enviar pergunta, tente novamente');
+  }
+}
+
+export function* answer({ payload }) {
+  try {
+    const { helpOrderId, answer: answerHelpOrder } = payload;
+    yield call(api.post, `/help-orders/${helpOrderId}/answer`, {
+      answer: answerHelpOrder,
+    });
+
+    toast.success('Resposta enviado ao aluno :)');
+    yield put(getHelpOrders());
+  } catch (err) {
+    toast.error('Falha a enviar resposta, tente novamente');
   }
 }
 
 export default all([
   takeLatest('@helpOrder/GET_HELPORDERS', get),
   takeLatest('@helpOrder/CREATE_HELPORDER', create),
+  takeLatest('@helpOrder/ANSWER_HELPORDER', answer),
 ]);

@@ -23,7 +23,7 @@ export default function DatePicker({ name, setChange }) {
       ref: ref.current,
       path: 'props.selected',
     });
-  }, [ref.current, fieldName]); // eslint-disable-line
+  }, [ref.current, fieldName]);
 
   function handleChange(date) {
     setSelected(date);

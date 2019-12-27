@@ -3,6 +3,7 @@ import produce from 'immer';
 const INITIAL_STATE = {
   students: [],
   loading: false,
+  hasMoreItems: false,
 };
 
 export default function student(state = INITIAL_STATE, action) {
@@ -14,6 +15,7 @@ export default function student(state = INITIAL_STATE, action) {
       }
       case '@student/GET_STUDENTS_SUCCESS': {
         draft.students = action.payload.students;
+        draft.hasMoreItems = action.payload.hasMoreItems;
         draft.loading = false;
         break;
       }

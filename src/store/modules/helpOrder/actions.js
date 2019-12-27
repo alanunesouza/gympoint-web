@@ -23,3 +23,17 @@ export function createHelpOrder(name, email, age, weight, height) {
     payload: { name, email, age, weight, height },
   };
 }
+
+export function answerHelpOrder(helpOrderId, answer) {
+  return {
+    type: '@helpOrder/ANSWER_HELPORDER',
+    payload: { helpOrderId, answer },
+  };
+}
+
+export function showModalHelpOrder(boolean) {
+  return {
+    type: '@helpOrder/SHOW_MODAL_HELPORDER',
+    payload: boolean,
+  };
+}

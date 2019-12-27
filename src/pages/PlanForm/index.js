@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
 import { FiCheck, FiChevronLeft } from 'react-icons/fi';
 import { toast } from 'react-toastify';
-import CurrencyInput from '~/components/CurrencyInput';
+import InputPrefix from '~/components/InputPrefix';
 
 import { Container, ListContainer, InputSmall, Button } from './styles';
 
@@ -22,7 +22,7 @@ const schema = Yup.object().shape({
   duration: Yup.number()
     .min(1, 'Duração inválida')
     .required('A duração é obrigatória'),
-  price: Yup.number().positive('O preço é obrigatório'),
+  // price: Yup.number().required('O preço é obrigatório'),
 });
 
 export default function PlanForm() {
@@ -57,12 +57,11 @@ export default function PlanForm() {
   function handleCreatePlan({ title, duration, price }) {
     const plan_id = Number(id);
     duration = Number(duration);
-    price = Number(price);
 
     if (isNewPlan) {
-      dispatch(createPlan(title, duration, price));
+      dispatch(createPlan(title, duration, planPrice));
     } else {
-      dispatch(updatePlan(plan_id, title, duration, price));
+      dispatch(updatePlan(plan_id, title, duration, planPrice));
     }
   }
 
@@ -106,27 +105,22 @@ export default function PlanForm() {
             </InputSmall>
 
             <InputSmall>
-              <CurrencyInput
+              <span style={{ color: '#666' }}>PREÇO MENSAL</span>
+              <InputPrefix
                 name="price"
+                prefix="R$"
+                suffix=",00"
+                maxLength={12}
+                thousandSeparator="."
                 disabled={false}
                 value={planPrice}
-                onChange={(_, value) => setPlanPrice(value)}
-                label="PREÇO MENSAL"
+                onChange={value => {
+                  setPlan({ ...plan, price: planPrice });
+                  setPlanPrice(value);
+                }}
+                label=""
               />
             </InputSmall>
-
-            {/* <InputSmall>
-              <span style={{ color: '#666' }}>PREÇO MENSAL</span>
-              <Input
-                name="price"
-                onChange={e =>
-                  (e.target.value = e.target.value.replace(
-                    /^[0-9]+(\.[0-9]{1,2})?$/g,
-                    ''
-                  ))
-                }
-              />
-            </InputSmall> */}
 
             <InputSmall disabled>
               <span style={{ color: '#666' }}>PREÇO TOTAL</span>

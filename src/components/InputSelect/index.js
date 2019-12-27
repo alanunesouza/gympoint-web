@@ -18,7 +18,7 @@ export default function InputSelect({ name, options, setChange }) {
       ref: ref.current,
       path: 'state.value',
     });
-  }, [ref.current, fieldName]); // eslint-disable-line
+  }, [ref.current, fieldName]);
 
   function handleChange(data) {
     setValue(data);

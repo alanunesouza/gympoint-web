@@ -59,7 +59,7 @@ export const Table = styled.table`
   }
 `;
 
-export const Button = styled.a`
+export const Button = styled.span`
   color: ${props => props.color};
   margin: 10px;
   cursor: pointer;

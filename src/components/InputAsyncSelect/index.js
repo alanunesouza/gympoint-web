@@ -27,7 +27,7 @@ export default function InputAsyncSelect({ name, label, loadOptions }) {
         selectRef.select.clearValue();
       },
     });
-  }, [ref.current, fieldName]); // eslint-disable-line
+  }, [ref.current, fieldName]);
 
   function handleChange(e) {
     setValue(e);

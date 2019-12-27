@@ -45,18 +45,11 @@ export default function Header({ page }) {
         <aside>
           <Profile>
             <div>
-              <Link to="/profile">{name}</Link>
+              <a href="#">{name}</a>
               <button type="button" onClick={handleSignOut}>
                 sair do sistema
               </button>
             </div>
-            {/* <img
-              src={
-                (profile.avatar && profile.avatar.url) ||
-                'https://api.adorable.io/avatars/50/abott@adorable.png'
-              }
-              alt="Diego Fernandes"
-            /> */}
           </Profile>
         </aside>
       </Content>

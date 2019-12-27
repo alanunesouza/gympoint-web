@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { FiPlus } from 'react-icons/fi';
 
 import { Container, ListContainer, Table, Button, ButtonAdd } from './styles';
-import api from '~/services/api';
 import { getPlans, deletePlan } from '~/store/modules/plan/actions';
 
 export default function Plans() {
@@ -38,12 +37,14 @@ export default function Plans() {
       <ListContainer>
         <Table>
           <thead>
-            <tr>
-              <th>título</th>
-              <th>duração</th>
-              <th>valor p/ mês</th>
-              <th> </th>
-            </tr>
+            {plans && plans.length === 0 && (
+              <tr>
+                <th>título</th>
+                <th>duração</th>
+                <th>valor p/ mês</th>
+                <th> </th>
+              </tr>
+            )}
           </thead>
           <tbody>
             {plans.map(plan => (
@@ -66,6 +67,10 @@ export default function Plans() {
             ))}
           </tbody>
         </Table>
+
+        {plans && plans.length === 0 && (
+          <span>Você não tem planos cadastrados no momento.</span>
+        )}
       </ListContainer>
     </Container>
   );
